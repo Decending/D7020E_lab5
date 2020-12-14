@@ -49,6 +49,8 @@ fn main() {
 //
 // [My answer here]
 // Because it is not seen as "inconsequential code" to the behaviour.
+// As to what "inconsequential code" is... I've been unable to find a sufficiently
+// well put together explaination of what it is exactly.
 //
 // B) Fix the code so that you don't get an error.
 // (It should still compute the sum of the n first elements
