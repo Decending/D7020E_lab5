@@ -59,7 +59,7 @@ int main()
 // What path in the code does this test represent?
 //
 // [My answer here]
-// This test represents the path taken when x < 0
+// This test represents the path taken when x > 0
 // the int (255) represents -1
 //
 // > ktest-tool klee-last/test000003.ktest
@@ -67,7 +67,7 @@ int main()
 // What path in the code does this test represent?
 //
 // [My answer here]
-// This test represents the path taken when x > 0
+// This test represents the path taken when x < 0
 // 
 // D) Replaying a test case
 //
@@ -129,16 +129,13 @@ int main()
 // Did the result correspond to the expected path for the test?
 //
 // [My answer here]
-// Yes, as the returned result (255) in binary is 11111111
-// This is interpreted as an unsigned 8 bit int, as opposed to an 8 bit 
-// signed int.
-// 2s complement of 255 is -1, which is the expected result.
+// Yes, as the answer is out of reach we get the result 255
+// instead of -1
 //
 // Why not? Confir to shell error codes:
 //
 // [My answer here]
-// We got the expected output, just interpreted as an unsigned int as
-// opposed to a signed one.
+// We got the expected output, just the corresponding shell error code
 //
 // D) Debugging
 //
@@ -183,8 +180,7 @@ int main()
 // Which path did it take, and why?
 //
 // [My answer here]
-// The path corresponding to x > 0, as x = -1 (11111111) is being 
-// interpreted as 255.
+// The path corresponding to x > 0, as x = 255.
 //
 // And finally:
 //
@@ -193,7 +189,7 @@ int main()
 // Which path did it take, and why?
 //
 // [My answer here]
-// The path taken corresponded to x < 0, as to why I can't answer yet.
+// The path taken corresponded to x < 0, as x = -2147483648
 //
 // E) Under the hood.
 //
