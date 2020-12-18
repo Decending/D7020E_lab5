@@ -206,7 +206,9 @@ fn main() {
 //
 // Why does these values cause an error debug/dev build but not in a release build.
 //
-// [your answer here]
+// [My answer here]
+// In --release the _time will be optimized out, as the variable is not
+// used, which leads to the calculation not being made.
 //
 // C) Fix the problem!
 //
@@ -240,7 +242,18 @@ fn main() {
 // How long time would lines 16/17 take to run to trigger the error?
 //
 // [My answer here]
-// Which code?
+// - The error stems from how the hardware works and not the written code, 
+// which leads to the error not being as easy to find as when the error
+// stems from the written code.
+// - The error occurs when CYCCNT has time to wrap around in between the 
+// readings of the variables, which leads to overflow.
+// - CYCCNT counts the clock cycles and stores the value in a 32 bit
+// register, which also wraps around during overflow.
+// 
+// - The 32 bit register will have to wrap around, (2^32) clock cycles.
+// - The MCU runs at 8 MHz.
+// - (2^32) / (8 * 10^6) ~= 536.87
+// - Roughly 537 seconds.
 //
 // Of course this is a contrived example, and may not occur in practice.
 // But, it represents a class of problems/errors/bugs that is
